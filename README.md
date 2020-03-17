@@ -1,6 +1,6 @@
-# expapp
+# Expenser
 
-A new Flutter project.
+App of managing expenses on daily basis.
 
 ## Getting Started
 
