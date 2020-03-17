@@ -1,4 +1,4 @@
-# Expenser
+# Expenser (Under Development)
 
 App of managing expenses on daily basis.
 
