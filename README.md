@@ -8,8 +8,8 @@ This app is written in Flutter and Dart.
 Note : This app is not yet verified by Google Play Protect, so please select "Install Anyway" whenever prompted.
 
 1. If you haven't selected installation from other sources please make sure you selected in Under Settings > Install Unknown Sources.
-2. Browse to the file using default File Manager and click install.
-3. Click Install
+2. Browse to the file using default File Manager.
+3. Click Install and Open.
 
 ### Bug : 
 
