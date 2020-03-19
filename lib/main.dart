@@ -2,23 +2,50 @@ import 'package:expapp/widgets/chart.dart';
 import 'package:expapp/widgets/new_transaction.dart';
 import 'package:expapp/widgets/transaction_list.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:splashscreen/splashscreen.dart';
 import 'package:flutter/material.dart';
-
 import 'models/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(new MaterialApp(
+    home: new MyApp(),
+    title: 'Expenser',
+    theme: ThemeData(
+      fontFamily: 'QuickSand',
+    ),
+    debugShowCheckedModeBanner: false,
+  ));
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Expenser',
-      home: MyHomePage(),
-      theme: ThemeData(
-        fontFamily: 'QuickSand',
+    return new SplashScreen(
+      seconds: 4,
+      navigateAfterSeconds: new MyHomePage(),
+      title: new Text(
+        'expenser',
+        style: new TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 40.0,
+            fontFamily: "QuickSand",
+            color: Colors.black87),
       ),
+      backgroundColor: Colors.white,
+      loadingText: Text(
+        "developed by",
+        style: TextStyle(fontFamily: "QuickSand", color: Colors.black38),
+      ),
+      subtitle: Text(
+        "Shashwat Priyadarshy",
+        style: TextStyle(fontFamily: "QuickSand", color: Colors.black38),
+      ),
+      photoSize: 100.0,
     );
   }
 }
@@ -32,9 +59,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(id: 't1', title: 'Tap to delete', amount:0, date: DateTime.now()),
-   
-    
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
   ];
 
   List<Transaction> get _recentransactions {
