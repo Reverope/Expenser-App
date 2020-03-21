@@ -3,6 +3,10 @@
 Simple app for managing expenses on daily basis.
 This app is written in Flutter and Dart.
 
+## Download 
+
+Click <a href="https://github.com/Reverope/expenseapp/raw/master/app.apk">here</a>.
+
 ## Installation
 
 Note : This app is not yet verified by Google Play Protect, so please select "Install Anyway" whenever prompted.
