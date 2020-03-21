@@ -1,5 +1,5 @@
-name: expapp
-description: A new Flutter project.
+name: Expenser
+description: Expense Tracking App.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -25,7 +25,14 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   splashscreen: ^1.2.0
- 
+  flutter_launcher_icons: ^0.7.4
+  percent_indicator: ^2.1.1+1
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "dev_assets/logo.png"
+  adaptive_icon_backgorund: "#f7f7f7"
+  adaptive_icon_foregroud: "dev_assets/logo_adp.png"
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -10,16 +10,14 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-
   void _submitData() {
-
     final eTitle = _titleController.text;
     final eAmount = double.parse(_amountController.text);
 
-    if (eTitle.isEmpty || eAmount <= 0||_selectedDate==null) {
+    if (eTitle.isEmpty || eAmount <= 0 || _selectedDate == null) {
       return;
     }
-    widget.fx(eTitle, eAmount,_selectedDate);
+    widget.fx(eTitle, eAmount, _selectedDate);
     Navigator.of(context).pop();
   }
 
@@ -48,7 +46,11 @@ class _NewTransactionState extends State<NewTransaction> {
   Widget build(BuildContext context) {
     return Card(
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: EdgeInsets.only(
+            top: 10,
+            left: 10,
+            right: 10,
+            bottom: 60),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,11 +1,13 @@
-import 'package:expapp/models/transaction.dart';
-import 'package:expapp/widgets/chart_bar.dart';
+import 'package:Expenser/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'chart_bar.dart';
+
 class Chart extends StatelessWidget {
   final List<Transaction> recentTransaction;
-  Chart(this.recentTransaction);
+  final appBar;
+  Chart(this.recentTransaction, this.appBar);
 
   List<Map<String, Object>> get grouperTransactionValues {
     return List.generate(7, (index) {
@@ -35,39 +37,44 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Container(
-                padding: EdgeInsets.all(10),
-                child: Text("Transaction of Last 7 Days")),
-          ],
-        ),
-        Card(
-          elevation: 10,
-          margin: EdgeInsets.all(5),
-          child: Container(
-            padding: EdgeInsets.all(15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: grouperTransactionValues.map((data) {
-                return Flexible(
-                  fit: FlexFit.tight,
-                  child: ChartBar(
-                    data['day'],
-                    data['amount'],
-                    totalSpending == 0
-                        ? (0)
-                        : (data['amount'] as double) / totalSpending,
-                  ),
-                );
-              }).toList(),
+    return Padding(
+      padding: const EdgeInsets.only(top: 5),
+      child: Column(
+        children: <Widget>[
+        
+          (MediaQuery.of(context).orientation == Orientation.portrait)
+              ? Row(
+                  children: <Widget>[
+                    Container(
+                        padding: EdgeInsets.all(10),
+                        child: Text("Transaction of Last 7 Days")),
+                  ],
+                )
+              : SizedBox(height: 0),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.01),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: grouperTransactionValues.map((data) {
+                  return Container(                  
+                    child: Flexible(
+                      fit: FlexFit.tight,
+                      child: ChartBar(
+                          data['day'],
+                          data['amount'],
+                          totalSpending == 0
+                              ? (0)
+                              : (data['amount'] as double) / totalSpending,
+                          appBar),
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,6 @@
-import 'package:expapp/widgets/chart.dart';
-import 'package:expapp/widgets/new_transaction.dart';
-import 'package:expapp/widgets/transaction_list.dart';
+import 'package:Expenser/widgets/chart.dart';
+import 'package:Expenser/widgets/new_transaction.dart';
+import 'package:Expenser/widgets/transaction_list.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +61,24 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
         id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 100, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 20, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 220, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
+    Transaction(
+        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
   ];
 
   List<Transaction> get _recentransactions {
@@ -99,19 +117,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.add),
-              onPressed: () {
-                startAddNewTransaction(context);
-              })
-        ],
-        title: Text(
-          "Expenser",
-        ),
+    final appBar = AppBar(
+      actions: <Widget>[],
+      title: Text(
+        "expenser",
+        style: TextStyle(letterSpacing: 5, fontWeight: FontWeight.w600),
       ),
+    );
+    Orientation ori = MediaQuery.of(context).orientation;
+    Orientation p = Orientation.portrait;
+    return Scaffold(
+      appBar: appBar,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
@@ -122,14 +138,23 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
           child: Column(
         children: <Widget>[
+          Container(
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height -
+                      MediaQuery.of(context).padding.top -
+                      20) *
+                  ((ori == p) ? 0.2 : 0.3),
+              child: Chart(_recentransactions, appBar)),
           SizedBox(
-            height: 5,
+            height: 10,
           ),
-          Chart(_recentransactions),
-          SizedBox(
-            height: 30,
-          ),
-          TransactionList(_userTransactions, _deleteTransaction)
+          Container(
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height -
+                      MediaQuery.of(context).padding.top -
+                      20) *
+                   ((ori == p) ? 0.8 : 0.7),
+              child: TransactionList(_userTransactions, _deleteTransaction))
         ],
       )),
     );
