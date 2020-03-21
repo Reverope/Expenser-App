@@ -5,7 +5,7 @@ This app is written in Flutter and Dart.
 
 ## Download 
 
-Click <a href="https://github.com/Reverope/expenseapp/raw/master/app.apk">here</a>.
+Click <a href="https://github.com/Reverope/expenseapp/raw/master/expenser.apk">here</a>.
 
 ## Installation
 
