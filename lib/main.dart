@@ -61,24 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
         id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 100, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 20, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 220, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
-    Transaction(
-        id: 't1', title: 'Tap to delete', amount: 0, date: DateTime.now()),
   ];
 
   List<Transaction> get _recentransactions {
@@ -153,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       appBar.preferredSize.height -
                       MediaQuery.of(context).padding.top -
                       20) *
-                   ((ori == p) ? 0.8 : 0.7),
+                  ((ori == p) ? 0.8 : 0.7),
               child: TransactionList(_userTransactions, _deleteTransaction))
         ],
       )),
