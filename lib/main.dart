@@ -125,7 +125,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       appBar.preferredSize.height -
                       MediaQuery.of(context).padding.top -
                       20) *
-                  ((ori == p) ? 0.2 : 0.3),
+                  ((ori == p) ? 0.3 : 0.3),
               child: Chart(_recentransactions, appBar)),
           SizedBox(
             height: 10,
@@ -135,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       appBar.preferredSize.height -
                       MediaQuery.of(context).padding.top -
                       20) *
-                  ((ori == p) ? 0.8 : 0.7),
+                  ((ori == p) ? 0.7 : 0.7),
               child: TransactionList(_userTransactions, _deleteTransaction))
         ],
       )),
